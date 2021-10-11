@@ -1,7 +1,5 @@
 import React, { Component, useEffect, useState } from 'react';
 
-//import ipfs from '../ipfs';
-// import contract from '../certchain'
 import Web3 from 'web3';
 import Certificate from '../contracts/contracts/Certificate.json';
 const RecipientCert = () => {
@@ -21,7 +19,7 @@ const RecipientCert = () => {
           provider = new Web3(window.web3.currentProvider)
         }
         else {
-          provider = new Web3.providers.HttpProvider('http://127.0.0.1:8545')
+          provider = new Web3.providers.HttpProvider('http://127.0.0.1:7545')
         }
         const web3 = provider;
         const accounts = await web3.eth.getAccounts();
@@ -52,6 +50,7 @@ const RecipientCert = () => {
             i=result;
         });
         for (let k=0;k<i.length;k++){
+            console.log(i[k]);
             await contract.methods.getCertificateById(i[k]).call().then((result)=>{
                 console.log(result.title,",",result.recipient);
             })

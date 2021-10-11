@@ -9,11 +9,6 @@ import Web3 from 'web3';
 import Certificate from './contracts/contracts/Certificate.json';
 import Navbar1 from './layouts/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-// import Home from './containers/Home';
-// import IssuerPage from './containers/IssuerPage';
-// import RecipientPage from './containers/RecipientPage';
-// import EventPage from './containers/EventPage';
 import { Suspense, lazy } from 'react';
 
 const Home = lazy(() => import('./containers/Home'));
@@ -30,9 +25,6 @@ function App() {
     <Router>
       <Navbar1 />
       <div className="container">
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
             <Route path="/signup">

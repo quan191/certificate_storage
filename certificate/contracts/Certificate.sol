@@ -76,7 +76,7 @@ contract Certificate {
     certificateOfRecipient[recipient].push(id);
   }
   function getCertificateById(uint id) public view returns(Certificate memory ){
-    return certificateList[id];
+    return certificateList[id-1];
   }
   function getCertificateIdOfUser(address recipient) public view returns(uint[] memory){
     return certificateOfRecipient[recipient];
